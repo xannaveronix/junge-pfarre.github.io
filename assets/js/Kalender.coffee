@@ -21,11 +21,17 @@
         events.reverse()                                    #Umordnen, da Originaldaten absteigend geordnet sind
         calendarList = document.getElementById 'calendar'   #<div> mit entsprechender Id suchen
         calendarListItems = ''
+        dateOptions = {weekday: "short", year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit"}
+        testtime = new Date(Date.now())
+        testtime.setHours(testtime.getHours() - 11)
         for event in events
           date = new Date(event.date)
-          dateOptions = {weekday: "short", year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit"}
-          calendarListItems = calendarListItems + "<li>#{event.title} (#{date.toLocaleString([], dateOptions)})</li>"
-        calendarList.innerHTML = '<ul>' + calendarListItems + '</ul>'
+          if date > testtime                                #Vergangene Events werden noch 12 Stunden (11h in MESZ) nach Event-Beginn angezeigt
+            calendarListItems = calendarListItems + "<li>#{event.title} (#{date.toLocaleString([], dateOptions)})</li>"
+        if calendarListItems
+          calendarList.innerHTML = '<ul>' + calendarListItems + '</ul>'
+        else
+          calendarList.innerHTML = 'Im nächsten Monat sind keine Veranstaltungen geplant'
       else
         console.log 'Error loading data...'
 
