@@ -3,6 +3,7 @@
 
 #Dieses Script parsed diesen Online-Kalender im Atom/XML-Format: https://posteo.de/calendars/feed/s49fo2ntyyrp1pfk1u9vq1h34ho9j93v
 #und fügt es in die Webseite ein.
+#Nach diesem Tutorial: https://coffeescript-cookbook.github.io/chapters/ajax/ajax_request_without_jquery (Coffeescript Cookbook)
 
   xhr = new XMLHttpRequest()
 
@@ -17,8 +18,8 @@
         snapshotMaxIndex = calendarTitles.snapshotLength-1
         x = [0..snapshotMaxIndex]
         events = ({title: calendarTitles.snapshotItem(i).innerHTML, date: calendarDates.snapshotItem(i).innerHTML} for i in x)        #parse all entries to json
-        events.reverse()
-        calendarList = document.getElementById 'calendar'
+        events.reverse()                                    #Umordnen, da Originaldaten absteigend geordnet sind
+        calendarList = document.getElementById 'calendar'   #<div> mit entsprechender Id suchen
         calendarListItems = ''
         for event in events
           date = new Date(event.date)
