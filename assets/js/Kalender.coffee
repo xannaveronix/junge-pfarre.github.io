@@ -8,11 +8,11 @@
   xhr = new XMLHttpRequest()
 
   xhr.addEventListener 'readystatechange', ->
-    if xhr.readyState is 4                                  #ReadyState Complete
+    if xhr.readyState is 4                                                      #ReadyState Complete
       successResultCodes = [200,304]
       if xhr.status in successResultCodes
         response = xhr.responseXML
-        resolver = -> 'http://www.w3.org/2005/Atom'         #Atom namespace resolver
+        resolver = -> 'http://www.w3.org/2005/Atom'                             #Atom namespace resolver
         calendarTitles = response.evaluate '/Atom:feed/Atom:entry/Atom:title', response, resolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null
         calendarDates = response.evaluate '/Atom:feed/Atom:entry/Atom:updated', response, resolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null
         snapshotMaxIndex = calendarTitles.snapshotLength-1
@@ -21,8 +21,8 @@
         testtime = new Date(Date.now())
         testtime.setHours(testtime.getHours() - 11)
         events = (event for event in events when event.date > testtime)         #Vergangene Events werden nach 12 Stunden (11h in MESZ) aussortiert
-        events.reverse()                                    #Umordnen, da Originaldaten absteigend geordnet sind
-        calendarList = document.getElementById 'calendar'   #<div> mit entsprechender Id suchen
+        events.reverse()                                                        #Umordnen, da Originaldaten absteigend geordnet sind
+        calendarList = document.getElementById 'calendar'                       #<div> mit entsprechender Id suchen
         calendarListItems = ''
         dateOptions = {weekday: "short", year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit"}
         for event in events
