@@ -30,9 +30,9 @@ xhr.addEventListener 'readystatechange', ->
       if calendarListItems
         calendarList.innerHTML = '<ul>' + calendarListItems + '</ul>'
       else
-        calendarList.innerHTML = 'Im nächsten Monat sind keine Veranstaltungen geplant'
+        calendarList.innerHTML = 'Im nächsten Monat sind keine Veranstaltungen geplant.'
     else
-      console.log 'Error loading data...'
+      calendarList.innerHTML = 'Fehler beim Laden der Kalenderdaten.'
 
 xhr.open 'GET', 'https://cors-anywhere.herokuapp.com/https://posteo.de/calendars/feed/s49fo2ntyyrp1pfk1u9vq1h34ho9j93v'
 xhr.send()
