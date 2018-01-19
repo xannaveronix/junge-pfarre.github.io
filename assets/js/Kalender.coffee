@@ -10,6 +10,7 @@ xhr = new XMLHttpRequest()
 xhr.addEventListener 'readystatechange', ->
   if xhr.readyState is 4                                                        #ReadyState Complete
     successResultCodes = [200,304]
+    document.getElementById('spinner').remove()
     if xhr.status in successResultCodes
       response = xhr.responseXML
       resolver = -> 'http://www.w3.org/2005/Atom'                               #Atom namespace resolver
