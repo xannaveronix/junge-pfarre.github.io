@@ -25,9 +25,14 @@ xhr.addEventListener 'readystatechange', ->
       events.reverse()                                                          #Umordnen, da Originaldaten absteigend geordnet sind
       calendarList = document.getElementById 'calendar'                         #<div> mit entsprechender Id suchen
       calendarListItems = ''
-      dateOptions = {weekday: "short", year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit"}
+      dateOptions = {weekday: "short", month: "2-digit", day: "2-digit"}
+      hourOptions = {hour: "numeric", minute: "2-digit"}
       for event in events
-        calendarListItems = calendarListItems + "<li>#{event.title} (#{event.date.toLocaleString([], dateOptions)})</li>"
+        calendarListItems = calendarListItems + "<li><span class=\"date\">#{event.date.toLocaleString([], dateOptions)}</span> | #{event.title}
+                                                  <ul class=\"event-details\">
+                                                    <li>Beginn: #{event.date.toLocaleString([], hourOptions)}</li>
+                                                  </ul>
+                                                </li>"
       if calendarListItems
         calendarList.innerHTML = '<ul>' + calendarListItems + '</ul>'
       else

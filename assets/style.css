@@ -40,3 +40,41 @@
     transform: scale(1.0);
   }
 }
+
+
+/* Kalender | Referenz: https://stackoverflow.com/a/30531678 */
+
+#calendar {
+  margin-bottom: 1em;
+}
+
+#calendar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#calendar > ul > li {
+  padding: 0.5em 0 0.5em 0;
+}
+
+#calendar li:not(:hover) .event-details {
+  font-size: 0;
+  margin: 0;
+  opacity:0;
+  padding: 0;
+  transition: font-size .25s ease-out;
+}
+
+#calendar li:hover .event-details {
+  transition: font-size .25s ease-out,
+              opacity .25s ease-out .25s;
+}
+
+.event-details > li {
+  margin: 0.5em 0 .5em 1em;
+}
+
+.date {
+  font-family: monospace;
+}
