@@ -16,9 +16,10 @@ xhr.addEventListener 'readystatechange', ->
       resolver = -> 'http://www.w3.org/2005/Atom'                               #Atom namespace resolver
       calendarTitles = response.evaluate '/Atom:feed/Atom:entry/Atom:title', response, resolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null
       calendarDates = response.evaluate '/Atom:feed/Atom:entry/Atom:updated', response, resolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null
+      calendarContent = response.evaluate '/Atom:feed/Atom:entry/Atom:content', response, resolver, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null
       snapshotMaxIndex = calendarTitles.snapshotLength-1
       x = [0..snapshotMaxIndex]
-      events = ({title: calendarTitles.snapshotItem(i).innerHTML, date: new Date(calendarDates.snapshotItem(i).innerHTML)} for i in x)        #parse all entries to json
+      events = ({title: calendarTitles.snapshotItem(i).innerHTML, date: new Date(calendarDates.snapshotItem(i).innerHTML), content: calendarContent.snapshotItem(i).innerHTML} for i in x)        #parse all entries to json
       testtime = new Date(Date.now())
       testtime.setHours(testtime.getHours() - 11)
       events = (event for event in events when event.date > testtime)           #Vergangene Events werden nach 12 Stunden (11h in MESZ) aussortiert
@@ -31,6 +32,7 @@ xhr.addEventListener 'readystatechange', ->
         calendarListItems = calendarListItems + "<li><span class=\"date\">#{event.date.toLocaleString([], dateOptions)}</span> | #{event.title}
                                                   <ul class=\"event-details\">
                                                     <li>Beginn: #{event.date.toLocaleString([], hourOptions)}</li>
+                                                    <li>#{event.content}</li>
                                                   </ul>
                                                 </li>"
       if calendarListItems
