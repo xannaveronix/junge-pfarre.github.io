@@ -78,3 +78,7 @@
 .date {
   font-family: monospace;
 }
+
+.event-description {
+  font-style: italic;
+}
