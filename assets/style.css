@@ -55,7 +55,20 @@
 }
 
 #calendar > ul > li {
-  padding: 0.5em 0 0.5em 0;
+  padding: .5em 0 .5em 0;
+}
+
+#calendar > ul > li:not(:hover)::before {
+  content: '▶';
+  display: inline-block;
+  transition: transform .25s ease-out;
+}
+
+#calendar > ul > li:hover::before {
+  content: '▶';
+  display: inline-block;
+  transform: rotate(90deg);
+  transition: transform .25s ease-out;
 }
 
 #calendar li:not(:hover) .event-details {
@@ -72,10 +85,11 @@
 }
 
 .event-details > li {
-  margin: 0.5em 0 .5em 1em;
+  margin: .5em 0 .5em 2em;
 }
 
 .date {
+  margin-left: .5em;
   font-family: monospace;
 }
 
