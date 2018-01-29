@@ -7,9 +7,10 @@ defaults:
 
 markdown: kramdown
 
-gems:
-  - github-pages
+plugins:
   - jekyll-coffeescript
+
+repository: pfarrjugend-bnstst/pfarrjugend-bnstst.github.io
 
 host: 0.0.0.0
 
