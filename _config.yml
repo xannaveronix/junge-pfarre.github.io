@@ -10,7 +10,7 @@ markdown: kramdown
 plugins:
   - jekyll-coffeescript
 
-repository: pfarrjugend-bnstst/pfarrjugend-bnstst.github.io
+repository: junge-pfarre/junge-pfarre.github.io
 
 host: 0.0.0.0
 
