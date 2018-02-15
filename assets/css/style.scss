@@ -2,6 +2,16 @@
 ---
 @import "jekyll-theme-slate";
 
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#main_content_wrap {
+  flex-grow: 1;
+}
+
 footer {
   overflow: hidden;
 }
