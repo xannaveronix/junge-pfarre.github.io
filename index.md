@@ -1,5 +1,4 @@
 ---
-title: Pfarrjugend Baden St. Stephan
 ---
 
 _Gelobt sei Jesus Christus._
