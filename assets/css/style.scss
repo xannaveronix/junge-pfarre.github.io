@@ -1,4 +1,36 @@
 ---
 ---
-
 @import "jekyll-theme-slate";
+
+footer {
+  overflow: hidden;
+}
+
+footer h3 {
+    color: #f2f2f2;
+}
+
+footer p {
+  font-size: 14px;
+}
+
+.footer-col-1 {
+  width: 48%;
+  float: left;
+}
+
+.footer-col-2 {
+  width: 50%;
+  float: right;
+}
+
+/*******************************************************************************
+Small Device Styles
+*******************************************************************************/
+
+@media screen and (max-width: 640px) {
+  .footer-col-1, .footer-col-2 {
+    width: 100%;
+    float:none;
+  }
+}
