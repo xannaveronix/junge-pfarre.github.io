@@ -4,13 +4,13 @@
 
 @font-face {
   font-family: "Amatic SC";
-  src: url("/assets/font/AmaticSC-Regular.ttf") format("truetype");
+  src: url("{{ site.baseurl }}/assets/font/AmaticSC-Regular.ttf") format("truetype");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "Amatic SC";
-  src: url("/assets/font/AmaticSC-Bold.ttf") format("truetype");
+  src: url("{{ site.baseurl }}/assets/font/AmaticSC-Bold.ttf") format("truetype");
   font-weight: 700;
 }
 
@@ -69,7 +69,7 @@ h6 {
 }
 
 #header_wrap {
-  background-image: url('/assets/Meilensteine20171221.jpg');
+  background-image: url('{{ site.baseurl }}/assets/Meilensteine20171221.jpg');
   background-repeat: no-repeat;
   background-position: center calc(50% - 50px);
   background-size: cover;
