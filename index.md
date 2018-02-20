@@ -1,4 +1,5 @@
 ---
+index: true
 ---
 
 _Gelobt sei Jesus Christus._

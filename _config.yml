@@ -1,5 +1,13 @@
 title: Junge Pfarre Baden St. Stephan
+description: >
+  Suchst du nach einer coolen, jungen Gemeinschaft im Herzen Badens?
+  Auf der Webseite der Jungen Pfarre Baden St. Stephan
+  findest du unsere aktuellen Termine, Fotos von unseren
+  Veranstaltungen und Infos über unsere Gemeinschaft aus
+  Jugendlichen und jungen Erwachsenen.
 email: jugend@baden-st-stephan.at
+
+lang: de
 
 defaults:
   -
@@ -12,6 +20,7 @@ markdown: kramdown
 
 plugins:
   - jekyll-coffeescript
+  - jekyll-seo-tag
 
 repository: junge-pfarre/junge-pfarre.github.io
 
