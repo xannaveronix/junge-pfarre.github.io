@@ -9,6 +9,9 @@ email: jugend@baden-st-stephan.at
 
 lang: de
 
+collections:
+- flyer
+
 defaults:
   -
     scope:

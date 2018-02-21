@@ -1,0 +1,6 @@
+{% for flyer in site.flyer %}
+  {% if flyer.date > site.time %}
+  <h2>{{ flyer.title }}</h2>
+  {{ flyer.content }}
+  {% endif %}
+{% endfor %}
