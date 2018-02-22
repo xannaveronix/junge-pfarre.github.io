@@ -5,6 +5,7 @@ description: >
   findest du unsere aktuellen Termine, Fotos von unseren
   Veranstaltungen und Infos über unsere Gemeinschaft aus
   Jugendlichen und jungen Erwachsenen.
+short_description: Termine und Fotos der Jungen Pfarre
 email: jugend@baden-st-stephan.at
 
 lang: de_DE
@@ -23,8 +24,7 @@ markdown: kramdown
 
 plugins:
   - jekyll-coffeescript
-  - jekyll-seo-tag
-
+  
 repository: junge-pfarre/junge-pfarre.github.io
 
 host: 0.0.0.0
